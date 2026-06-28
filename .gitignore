@@ -29,6 +29,7 @@ ENV/
 
 # Model files (large binary files)
 *.h5
+!simple_rnn_imdb.h5
 *.keras
 *.pkl
 *.joblib

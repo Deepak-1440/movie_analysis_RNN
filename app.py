@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.datasets import imdb
+import json
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import SimpleRNN
@@ -14,7 +14,8 @@ class CustomSimpleRNN(SimpleRNN):
 
 @st.cache_data
 def load_imdb_data():
-    word_index = imdb.get_word_index()
+    with open('word_index.json', 'r') as f:
+        word_index = json.load(f)
     reverse_word_index = {value: key for key, value in word_index.items()}
     return word_index, reverse_word_index
 
